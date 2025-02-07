@@ -13,9 +13,8 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "inventory_books")
+@Table(name = "inventoryBooks")
 public class Book {
-
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -23,15 +22,13 @@ public class Book {
     @Column(nullable = false)
     private String title;
 
-    @Column(nullable = false)
-    private String authorName;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;
 
     @Column(nullable = false)
-    private Integer quantity;
+    private double price;
 
-    public void decrementQuantity() {
-        if (quantity > 0) {
-            quantity--;
-        }
-    }
+    @Column(nullable = false)
+    private Integer publishedYear;
 }
