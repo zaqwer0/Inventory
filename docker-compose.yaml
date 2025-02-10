@@ -1,0 +1,12 @@
+services:
+  postgres:
+    image: postgres:17
+    container_name: inventory_postgres
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: ${database_name}
+      POSTGRES_USER: ${database_user}
+      POSTGRES_PASSWORD: ${database_password}
+    restart: always
+    env_file: .env

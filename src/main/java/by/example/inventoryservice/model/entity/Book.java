@@ -1,19 +1,34 @@
 package by.example.inventoryservice.model.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Data
+import java.util.UUID;
+
 @Entity
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "inventoryBooks")
 public class Book {
-
     @Id
-    @GeneratedValue
-    private Long id;
-    private String title;
-    private String author;
-    private int quantity;
-}
+    @GeneratedValue(strategy = GenerationType.UUID)
+    private UUID id;
 
+    @Column(nullable = false)
+    private String title;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "author_id", nullable = false)
+    private Author author;
+
+    @Column(nullable = false)
+    private double price;
+
+    @Column(nullable = false)
+    private Integer publishedYear;
+}
