@@ -31,4 +31,7 @@ public class Book {
 
     @Column(nullable = false)
     private Integer publishedYear;
+
+    @Column(nullable = false)
+    private Long quantity;
 }
