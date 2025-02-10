@@ -34,7 +34,7 @@ spring:
         spring:
           json:
             type:
-              mapping: by.example.bookstore_api.kafka.OrderEventDto:by.example.inventoryservice.model.dto.OrderEventDto
+              mapping: by.example.bookstore_api.kafka.OrderEventDto:by.example.inventoryservice.model.event.dto.OrderEventDto
             trusted:
               packages: "*"
     producer:
