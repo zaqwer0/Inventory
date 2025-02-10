@@ -11,4 +11,3 @@ public interface BookRepository extends JpaRepository<Book, UUID> {
     Optional<Book> findByTitle(String title);
     Optional<Book> findByTitleAndAuthorName(String title, String authorName);
 }
-//дав потм бд конекншн глянемй уже все будет работать после этого

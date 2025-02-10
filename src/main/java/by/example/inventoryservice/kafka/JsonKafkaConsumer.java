@@ -1,7 +1,7 @@
 package by.example.inventoryservice.kafka;
 
 
-import by.example.inventoryservice.model.dto.OrderEventDto;
+import by.example.inventoryservice.model.event.dto.OrderEventDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
