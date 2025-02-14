@@ -21,7 +21,7 @@ public class InventoryService {
 
         InventoryResponseDto responseDto = InventoryResponseDto.builder()
                 .bookTitle(orderEventDto.bookTitle())
-                .quantity(orderEventDto.quantity())
+                .quantity((long) orderEventDto.quantity())
                 .available(repository.isPresent() && repository.get().getQuantity() >= orderEventDto.quantity())
                 .build();
 
